@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  cursor: none;
+}
+
+.pointer {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: red;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 1;
+}
+
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.circle.pop {
+  animation: pop 0.2s ease;
+}
+
+.scoreboard {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: sans-serif;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  color: black;
+  z-index: 10;
+}
+
+.highscore-message {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff0066;
+  background: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.name-input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.name-input input {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.name-input button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #ff0066;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.name-input button:hover {
+  background: #e0005a;
+}
+
+/* 📱 Responsive tweaks for mobile */
+@media (max-width: 600px) {
+  .circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .pointer {
+    width: 30px;
+    height: 30px;
+  }
+
+  .scoreboard {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .highscore-message {
+    font-size: 28px;
+    padding: 12px 24px;
+  }
+
+  .name-input input {
+    width: 150px;
+    font-size: 16px;
+  }
+
+  .name-input button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
