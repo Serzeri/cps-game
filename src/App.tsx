@@ -80,7 +80,7 @@ function App() {
   }, [clicks, highScore, username]);
 
   const fetchLeaderboard = () => {
-    fetch('http://localhost:8000/leaderboard')
+    fetch('https://cps-backend.onrender.com/leaderboard')
       .then(res => res.json())
       .then((data: ScoreEntry[]) => {
         const bestPerPlayer = new Map<string, number>();
